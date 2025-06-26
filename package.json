@@ -1,0 +1,23 @@
+{
+  "name": "node-test-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roshanpaudel/node-test-app.git"
+  },
+  "author": "Roshan Paudel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roshanpaudel/node-test-app/issues"
+  },
+  "homepage": "https://github.com/roshanpaudel/node-test-app#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
