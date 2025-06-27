@@ -7,13 +7,13 @@ const app = express();
 const PORT = 8000;
 
 //Serve static file from public directory
-app.use(express.static(__dirname + "/public"));
-
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res, next) => {
   console.log("We got request");
   //sendFile method require complete file path
-  res.sendFile(__dirname + "/src/index.html");
+  //path.join used for cross compatility for path convention in different OS
+  res.sendFile(path.join(__dirname, "src/index.html"));
 });
 app.listen(PORT, (error) => {
   error
