@@ -1,0 +1,91 @@
+/* Basic Reset & Layout */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f8f8; /* Very light gray */
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #5cb85c; /* Green */
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 10px 0; /* Add margin below title for nav */
+  font-size: 1.8em;
+}
+
+/* Navigation List */
+header nav ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Arrange links horizontally */
+  justify-content: center; /* Center links */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+header nav ul li {
+  margin: 0 10px; /* Space between links */
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+  padding: 5px 0;
+  display: block; /* Make entire area clickable */
+  transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+header nav ul li a:hover {
+  color: #000000; /* Changed to black on hover */
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1; /* Takes available vertical space */
+  padding: 20px;
+  max-width: 800px; /* Max width for content */
+  margin: 20px auto; /* Center content block with vertical margin */
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+  color: #4caf50; /* Green heading */
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+main p {
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Image Styling */
+.content-image {
+  max-width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below image */
+  margin: 15px 0;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  background-color: #333; /* Dark gray */
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 0.8em;
+  margin-top: auto; /* Pushes footer to the bottom */
+}

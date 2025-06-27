@@ -6,6 +6,10 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = 8000;
 
+//Serve static file from public directory
+app.use(express.static(__dirname + "/public"));
+
+
 app.get("/", (req, res, next) => {
   console.log("We got request");
   //sendFile method require complete file path
