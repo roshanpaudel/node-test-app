@@ -4,7 +4,9 @@ const PORT = 8000;
 
 app.get("/", (req, res, next) => {
   console.log("We got request");
-  res.send("form server");
+  res.send(
+    `<h1>Hello from dev</h1><hr><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptas?</p>`
+  );
 });
 app.listen(PORT, (error) => {
   error
