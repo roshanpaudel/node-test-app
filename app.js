@@ -15,6 +15,15 @@ app.get("/", (req, res, next) => {
   //path.join used for cross compatility for path convention in different OS
   res.sendFile(path.join(__dirname, "src/index.html"));
 });
+
+//response JSON from server
+app.get("/get-user", (req, res) => {
+  res.json({
+    fName: "Roshan",
+    lName: "Paudel",
+  });
+});
+
 app.listen(PORT, (error) => {
   error
     ? console.log(error)
