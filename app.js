@@ -4,8 +4,8 @@ const PORT = 8000;
 
 app.get("/", (req, res, next) => {
   console.log("We got request");
-  res.send(
-    `<h1>Hello from dev</h1><hr><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, voluptas?</p>`
+  res.sendFile(
+    "/Users/User/Documents/Dev/Dented Code/Node Projects/node-test-app/src/index.html"
   );
 });
 app.listen(PORT, (error) => {
