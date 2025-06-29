@@ -89,3 +89,27 @@ footer {
   font-size: 0.8em;
   margin-top: auto; /* Pushes footer to the bottom */
 }
+
+/* login-page */
+/* Custom styles to center the card and apply Inter font */
+.container {
+  font-family: "Inter", sans-serif;
+  background-color: #f8f9fa; /* Light background from Bootstrap */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+}
+.login-card {
+  max-width: 400px; /* Max width for the card */
+  width: 100%; /* Ensure it takes full width within max-width */
+  padding: 30px; /* More padding for better spacing */
+  border-radius: 1rem; /* More rounded corners */
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Further adjust button style */
+
+.button-green {
+  background-color: #4caf50 !important; /* Green heading */
+  border-radius: 0.5rem;
+}
