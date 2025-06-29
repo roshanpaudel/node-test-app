@@ -25,7 +25,7 @@ app.get("/login", (req, res, next) => {
 //user register controller
 app.get("/register", (req, res, next) => {
   console.log("Register request");
-  res.sendFile(path.join(__dirname, "src/index.html"));
+  res.sendFile(path.join(__dirname, "src/register.html"));
 });
 
 //response JSON from server

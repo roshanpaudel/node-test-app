@@ -90,7 +90,7 @@ footer {
   margin-top: auto; /* Pushes footer to the bottom */
 }
 
-/* login-page */
+/* login-page */ /* register-page */
 /* Custom styles to center the card and apply Inter font */
 .container {
   font-family: "Inter", sans-serif;
@@ -100,7 +100,7 @@ footer {
   align-items: center;
   min-height: 100vh; /* Full viewport height */
 }
-.login-card {
+.login-card .register-card {
   max-width: 400px; /* Max width for the card */
   width: 100%; /* Ensure it takes full width within max-width */
   padding: 30px; /* More padding for better spacing */
