@@ -7,6 +7,7 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = 8000;
 const fileName = "userList.csv";
+
 const verifyLogin = (data, email, password) => {
   const individualLogin = data
     .split("\n")
@@ -34,7 +35,7 @@ app.get("/login", (req, res, next) => {
 
 app.post("/login", (req, res, next) => {
   const { email, password } = req.body;
-  fs.readFile(path.join(__dirname, "userList.csv"), "utf8", (error, data) => {
+  fs.readFile(path.join(__dirname, fileName), "utf8", (error, data) => {
     if (error) console.log(error);
     else if (verifyLogin(data, email, password)) res.redirect("/");
     else res.sendFile(path.join(__dirname, "src/loginFailed.html"));
@@ -49,7 +50,7 @@ app.post("/register", (req, res, next) => {
   const { name, email, password } = req.body;
   const str = `${name},${email},${password}\n`;
 
-  fs.appendFile("userList.csv", str, (error) => {
+  fs.appendFile(fileName, str, (error) => {
     error ? res.send(error.message) : res.redirect("/");
   });
 
