@@ -7,8 +7,11 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = 8000;
 const fileName = "userList.csv";
-const verifyLogin = (data) => {
-  console.log(data);
+const verifyLogin = (data, email, password) => {
+  const individualLogin = data
+    .split("\n")
+    .map((item) => item.substring(item.indexOf(",") + 1));
+  return individualLogin.includes(`${email},${password}`);
 };
 
 //Serve static file from public directory
@@ -30,10 +33,10 @@ app.get("/login", (req, res, next) => {
 });
 
 app.post("/login", (req, res, next) => {
-  const { name, password } = req.body;
+  const { email, password } = req.body;
   fs.readFile(path.join(__dirname, "userList.csv"), "utf8", (error, data) => {
     if (error) console.log(error);
-    else if (verifyLogin(data)) res.redirect("/");
+    else if (verifyLogin(data, email, password)) res.redirect("/");
     else res.sendFile(path.join(__dirname, "src/loginFailed.html"));
   });
 });
