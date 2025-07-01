@@ -24,10 +24,10 @@ app.get("/", (req, res, next) => {
 });
 
 //user login controller
-// app.get("/login", (req, res, next) => {
-//   console.log("login request");
-//   res.sendFile(path.join(__dirname, "src/login.html"));
-// });
+app.get("/login", (req, res, next) => {
+  console.log("login request");
+  res.sendFile(path.join(__dirname, "src/login.html"));
+});
 
 app.post("/login", (req, res, next) => {
   const { name, password } = req.body;
@@ -36,14 +36,12 @@ app.post("/login", (req, res, next) => {
     else if (verifyLogin(data)) res.redirect("/");
     else res.sendFile(path.join(__dirname, "src/loginFailed.html"));
   });
-
-  res.sendFile(path.join(__dirname, "src/login.html"));
 });
 //user register controller
-// app.get("/register", (req, res, next) => {
-//   console.log("Register request");
-//   res.sendFile(path.join(__dirname, "src/register.html"));
-// });
+app.get("/register", (req, res, next) => {
+  console.log("Register request");
+  res.sendFile(path.join(__dirname, "src/register.html"));
+});
 app.post("/register", (req, res, next) => {
   const { name, email, password } = req.body;
   const str = `${name},${email},${password}\n`;
