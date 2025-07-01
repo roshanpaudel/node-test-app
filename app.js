@@ -7,6 +7,9 @@ const __dirname = path.resolve();
 const app = express();
 const PORT = 8000;
 const fileName = "userList.csv";
+const verifyLogin = (data) => {
+  console.log(data);
+};
 
 //Serve static file from public directory
 app.use(express.static(path.join(__dirname, "public")));
@@ -21,8 +24,19 @@ app.get("/", (req, res, next) => {
 });
 
 //user login controller
-app.get("/login", (req, res, next) => {
-  console.log("login request");
+// app.get("/login", (req, res, next) => {
+//   console.log("login request");
+//   res.sendFile(path.join(__dirname, "src/login.html"));
+// });
+
+app.post("/login", (req, res, next) => {
+  const { name, password } = req.body;
+  fs.readFile(path.join(__dirname, "userList.csv"), "utf8", (error, data) => {
+    if (error) console.log(error);
+    else if (verifyLogin(data)) res.redirect("/");
+    else res.sendFile(path.join(__dirname, "src/loginFailed.html"));
+  });
+
   res.sendFile(path.join(__dirname, "src/login.html"));
 });
 //user register controller
@@ -33,8 +47,9 @@ app.get("/login", (req, res, next) => {
 app.post("/register", (req, res, next) => {
   const { name, email, password } = req.body;
   const str = `${name},${email},${password}\n`;
+
   fs.appendFile("userList.csv", str, (error) => {
-    error ? console.log(error) : console.log("Details added in file");
+    error ? res.send(error.message) : res.redirect("/");
   });
 
   res.sendFile(path.join(__dirname, "src/register.html"));
